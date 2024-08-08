@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Allura&family=Great+Vibes&family=Italiana&family=Open+Sans&family=Poppins&family=Roboto&family=Work+Sans:wght@100&display=swap" rel="stylesheet" />
+    <title>Connexion</title>
+  </head>
+  <body>
+     <div class="cd-index cd-main-content">
+      <div>
+    <div class="container">
+      <div class="login">
+        <h1>Connexion</h1>
+        <form action="" onsubmit="return validateForm()">
+          <div class="input-box">
+            <input type="text" id="username" placeholder="Username" required />
+          </div>
+          <div class="input-box">
+            <input type="password" id="password" placeholder="Password" />
+          </div>
+          <div id="message-container"></div>
+          <div id="message-container2"></div>
+          <button type="submit">Se connecter</button>
+        </form>
+      </div>
+    </div>
+    <script>
+  function validateForm() {
+    var usernameInput = document.getElementById("username");
+    var passwordInput = document.getElementById("password");
+    var messageContainer1 = document.getElementById("message-container");
+    var messageContainer2 = document.getElementById("message-container2");
+
+    // Reset message erreur
+    messageContainer1.innerHTML = "";
+    messageContainer2.innerHTML = "";
+
+    if (usernameInput.value !== "Osullivan") {
+      messageContainer1.innerHTML = "Username invalide.";
+    }
+
+    if (passwordInput.value !== "Osullivan2023") {
+      messageContainer2.innerHTML = "Mot de passe invalide.";
+    }
+
+    // Ne pas passer si username ou password incorrect
+    if (messageContainer1.innerHTML !== "" || messageContainer2.innerHTML !== "") {
+      return false;
+    }
+
+    // Transition si les deux credentiels fonctionne
+    document.body.classList.add('transition-start');
+
+    // Timeout
+    setTimeout(function () {
+      window.location.replace("roulette.html");
+    }, 1000);
+
+    return false;
+  }
+    </script>
+  </body>
+</html>
